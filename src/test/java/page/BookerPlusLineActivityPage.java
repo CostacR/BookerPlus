@@ -23,6 +23,8 @@ public class BookerPlusLineActivityPage extends BookerPlusBasePage{
                 ;}
 
     public BookerPlusLineActivityTaskPage clickTask() {
+        System.out.println("ActivityCode link: "+lineActivityProjectField.getText()+"\n is visibled: "
+                +lineActivityProjectField.isDisplayed()+"\n is enabled: "+lineActivityProjectField.isEnabled());
         lineActivityProjectField.click();
         return new BookerPlusLineActivityTaskPage(driver);
     }

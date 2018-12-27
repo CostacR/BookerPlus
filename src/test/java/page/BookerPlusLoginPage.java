@@ -51,19 +51,13 @@ public class BookerPlusLoginPage extends BookerPlusBasePage {
     public <T> T login (String userName, String userPassword){
         userNameField.sendKeys(userName);
         userPasswordField.sendKeys(userPassword);
-        //userPasswordField.sendKeys(Keys.ENTER);
-                loginButton.click();
+        loginButton.click();
 
         if (isUrlContains("/home", 5)) {
             return (T) new BookerPlusHomePage(driver);
         }
-//        if (isUrlContains("/login",5)) {
-//            return (T) new BookerPlusLoginSubmitPage(driver);
-//        }
-        else {
+      else {
             return (T) new BookerPlusLoginPage(driver);
-//            return (T) this                                                           //другие варианеты записи
-//            return (T) PageFactory.initElements(driver, page.LinkedinLoginPage.class);     //другие варианеты записи
         }
     }
 

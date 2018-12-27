@@ -12,14 +12,17 @@ public class BookerPlusBaseTest {
     @BeforeMethod
     public void beforeMethod() {
         driver = new FirefoxDriver();
-        driver.get("http://localhost:8080/erp/");
+        driver.get("http://localhost:8090/erp/");
         driver.manage().window().maximize();
         bookerPlusLoginPage = new BookerPlusLoginPage(driver);
     }
 
     @AfterMethod (alwaysRun = true)
-    public void afterMethod(){
-//        driver.quit();
+    public void afterMethod()
+            throws InterruptedException
+    {
+//      Thread.sleep(5000);
+//      driver.quit();
     }
 }
 

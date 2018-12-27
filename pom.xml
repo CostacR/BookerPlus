@@ -23,11 +23,28 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.21.0</version>
                 <inherited>false</inherited>
+
+                <!--проверка подключения репортов-->
                 <configuration>
+                    <testSourceDirectory>D:\tests\BookerPlus\src\main\java</testSourceDirectory>
+                    <testClassesDirectory>D:\tests\BookerPlus\target\classes</testClassesDirectory>
+                        <properties>
+                            <property>
+                                <name>usedefaultlisteners</name>
+                                <value>false</value>
+                            </property>
+                            <property>
+                                <name>listener</name>
+                                <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                            </property>
+                        </properties>
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+
+
+
             </plugin>
         </plugins>
     </build>
