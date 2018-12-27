@@ -32,15 +32,9 @@ public class BookerPlusLoginTest extends BookerPlusBaseTest{
         //edit new schedule
         BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
                 =  bookerPlusLineActivityTaskPage.ScheduleButtonClick();
-//        BookerPlusTaskEditPage bookerPlusTaskEditPage
-//                = bookerPlusNewTaskEditPage.addAndEditTask();//2018
-//        bookerPlusTaskEditPage.set2018HoursWeeks();
-//        bookerPlusTaskEditPage.saveAllChanges2018Click();//
-//        BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
-//        bookerPlusTaskEditPage.set2019HoursWeeks();
-//        bookerPlusTaskEditPage.correctSumHoursTest();
-//        bookerPlusTaskEditPage.saveAllChanges2019Click();
-//        bookerPlusTaskEditPage.sumHoursAddTest();
+        bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
+        bookerPlusNewTaskEditPage.addAndEditTask();
+        bookerPlusNewTaskEditPage.setHoursButtonClick();
 
 
     }

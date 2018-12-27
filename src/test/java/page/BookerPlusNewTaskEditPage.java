@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
 //    @FindBy(xpath = "//b[contains(text(),'${taskName}')]") //ппроверка имени таска, отложить
@@ -24,7 +25,7 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
     @FindBy(xpath = "//i[@class='glyphicon glyphicon-plus']/ancestor-or-self::button")
     private WebElement selectResourceButton;
 
-    @FindBy(xpath = "//button[contains(text(), 'Set hours')][@class='btn btn-primary btn-sm']")
+    @FindBy(xpath = "//div[@class='btn-group']//*[contains(text(),'Set hours')]")
     private WebElement setHourButton;
 
     @FindBy(xpath = "//button[contains(text(),'Delete plans without hours')][@class='btn btn-default btn-sm']")
@@ -57,7 +58,31 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
     @FindBy(xpath = "(//div[@class='btn-group']//a[contains(text(), '')])[2]")
     private WebElement years2019SetDropMenu;
 
+    @FindBy (xpath = "//*[@id='scheduleHour']")
+    private WebElement setHoursMenuHourTextField;
 
+    @FindBy (xpath = "//*[@id='startWeek']")
+    private WebElement setHoursMenuStartTextField;
+    @FindBy (xpath = "(//button[@class='btn btn-default']//i[@class='glyphicon glyphicon-calendar'])[1]")
+    private WebElement setHoursMenuStartCalendarField;
+    @FindBy (xpath = "//*[@id='endWeek']")
+    private WebElement setHoursMenuFinishTextField;
+    @FindBy (xpath = "(//button[@class='btn btn-default']//i[@class='glyphicon glyphicon-calendar'])[2]")
+    private WebElement setHoursMenuFinishCalendarField;
+    @FindBy(xpath = "(//*[@type='radio'])[1]")
+    private WebElement newResourcesRadioButton;
+    @FindBy(xpath = "(//*[@type='radio'])[2]")
+    private WebElement emptyHoursRadioButton;
+    @FindBy(xpath = "(//*[@type='radio'])[3]")
+    private WebElement updateResourcesRadioButton;
+    @FindBy (xpath = "(//div[@class='form-group']/button[@class='btn btn-success btn-sm' and contains(text(), 'Add')])[1]")
+    private WebElement addButtonSetHoursMenu;
+
+    @FindBy (xpath = "//div[@class='form-group']")
+    private WebElement cancelButtonSetHoursMenu;
+
+    @FindBy (xpath = "//div[@class='form-group']")
+    private WebElement cleanHoursButtonSetHoursMenu;
 
     public BookerPlusNewTaskEditPage(WebDriver driver) {
         this.driver=driver;
@@ -76,6 +101,16 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
         Thread.sleep(500);
         years2019SetDropMenu.click();
     }
+    public void setHoursButtonClick() {
+        setHourButton.click();
+        setHoursMenuHourTextField.sendKeys("10");
+        setHoursMenuStartTextField.sendKeys("01.01.2019");
+        setHoursMenuFinishTextField.sendKeys("24.02.2019");
+        Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
+        newResourcesRadioButton.click();
+        addButtonSetHoursMenu.click();
+        }
+
 
     public boolean isMenuButtonAble() {
         System.out.println("button menu test");
