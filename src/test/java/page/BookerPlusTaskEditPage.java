@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -86,6 +87,34 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     @FindBy (xpath = "//*[@id='navbar-ex-collapse']/ul[1]/li[3]/a")
     private WebElement lineActivityMenuButton;
 
+    @FindBy (xpath = "//*[@id='scheduleHour']")
+    private WebElement setHoursMenuHourTextField;
+
+    @FindBy (xpath = "//*[@id='startWeek']")
+    private WebElement setHoursMenuStartTextField;
+    @FindBy (xpath = "(//button[@class='btn btn-default']//i[@class='glyphicon glyphicon-calendar'])[1]")
+    private WebElement setHoursMenuStartCalendarField;
+    @FindBy (xpath = "//*[@id='endWeek']")
+    private WebElement setHoursMenuFinishTextField;
+    @FindBy (xpath = "(//button[@class='btn btn-default']//i[@class='glyphicon glyphicon-calendar'])[2]")
+    private WebElement setHoursMenuFinishCalendarField;
+    @FindBy(xpath = "(//*[@type='radio'])[1]")
+    private WebElement newResourcesRadioButton;
+    @FindBy(xpath = "(//*[@type='radio'])[1]")
+    private WebElement emptyHoursRadioButton;
+    @FindBy(xpath = "(//*[@type='radio'])[2]")
+    private WebElement updateResourcesRadioButton;
+    @FindBy (xpath = "(//div[@class='form-group']/button[@class='btn btn-success btn-sm' and contains(text(), 'Add')])[1]")
+    private WebElement addButtonSetHoursMenu;
+
+    @FindBy (xpath = "//div[@class='form-group']")
+    private WebElement cancelButtonSetHoursMenu;
+
+    @FindBy (xpath = "//div[@class='form-group']")
+    private WebElement cleanHoursButtonSetHoursMenu;
+
+    @FindBy(xpath = "//div[@class='btn-group']//*[contains(text(),'Set hours')]")
+    private WebElement setHourButton;
 
     public BookerPlusTaskEditPage(WebDriver driver) {
         this.driver=driver;
@@ -159,6 +188,42 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
             return false;
         }
     }
+    public void setNewResourcesButtonClick() throws InterruptedException {
+        setHourButton.click();
+        setHoursMenuHourTextField.sendKeys("10");
+        setHoursMenuStartTextField.sendKeys("01.01.2019");
+        setHoursMenuFinishTextField.sendKeys("24.02.2019");
+        System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
+                +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
+        Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
+        newResourcesRadioButton.click();
+        Thread.sleep(1500);
+        addButtonSetHoursMenu.click();
+    }
 
+    public void setEmptyHoursButtonClick() throws InterruptedException {
+        setHourButton.click();
+        setHoursMenuHourTextField.sendKeys("8");
+        setHoursMenuStartTextField.sendKeys("08.01.2019");
+        setHoursMenuFinishTextField.sendKeys("28.02.2019");
+        System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
+                +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
+        Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
+        emptyHoursRadioButton.click();
+        Thread.sleep(1500);
+        addButtonSetHoursMenu.click();
+    }
+    public void setUpdateResourcesButtonClick() throws InterruptedException {
+        setHourButton.click();
+        setHoursMenuHourTextField.sendKeys("7");
+        setHoursMenuStartTextField.sendKeys("05.02.2019");
+        setHoursMenuFinishTextField.sendKeys("25.02.2019");
+        System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
+                +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
+        Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
+        updateResourcesRadioButton.click();
+        Thread.sleep(1500);
+        addButtonSetHoursMenu.click();
+    }
 
 }
