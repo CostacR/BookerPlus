@@ -12,54 +12,36 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
 
     @FindBy(xpath = "//span[contains(text(),'plans)')]")
     private WebElement numberPlansTask;
-
     @FindBy(xpath = "//button[@class='btn btn-success btn-sm dropdown-toggle']")
     private WebElement yearSelectDropMenu;
-
     @FindBy(xpath = "//button[@title='Tasks']")
     private WebElement taskListButton;
-
     @FindBy(xpath = "//button[@type='button'][contains(text(),'Cancel')]")
     private WebElement cancelButton;
-
     @FindBy(xpath = "//i[@class='glyphicon glyphicon-plus']/ancestor-or-self::button")
     private WebElement selectResourceButton;
-
     @FindBy(xpath = "//div[@class='btn-group']//*[contains(text(),'Set hours')]")
     private WebElement setHourButton;
-
     @FindBy(xpath = "//button[contains(text(),'Delete plans without hours')][@class='btn btn-default btn-sm']")
     private WebElement delitePlansWithoutHoursButton;
-
     @FindBy(xpath = "//button[contains(text(), 'Options')]")
     private WebElement optionsButton;
-
     @FindBy(xpath = "//select[@id='selectedResource']")
     private WebElement selectResourceDropMenu;
-
     @FindBy(xpath = "//tr[@class='total']//td[4]")
     private WebElement startWeekSelectField;
-
     @FindBy(xpath = "//tr[@class='total']//td[15]")
     private WebElement finishWeekSelectField;
-
     @FindBy(xpath = "//tr//th[5]")
     private WebElement startWeekField;
-
     @FindBy(xpath = "//tr//th[16]")
     private WebElement finishWeekField;
-
     @FindBy(xpath = "//option[@value='1: Object']")
     private WebElement selectResourceDropMenuFirstObject;
-
     @FindBy(xpath = "(//div[@class='btn-group']//a[contains(text(), '')])[1]")
     private WebElement years2018SetDropMenu;
-
-    @FindBy(xpath = "(//div[@class='btn-group']//a[contains(text(), '')])[2]")
+    @FindBy(xpath = "(//div[@class='btn-group']//a[contains(text(), '')])[1]")
     private WebElement years2019SetDropMenu;
-
-
-
 
     public BookerPlusNewTaskEditPage(WebDriver driver) {
         this.driver=driver;
@@ -71,14 +53,12 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
         System.out.println("Selected resources: "+selectResourceDropMenuFirstObject.getText());
         return new BookerPlusTaskEditPage(driver);
     }
-
     public void setYearSelectDropMenuClickable() throws InterruptedException {
         yearSelectDropMenu.click();
         System.out.println("DropMenu Year. Ok");
         Thread.sleep(500);
         years2019SetDropMenu.click();
     }
-
     public boolean isMenuButtonAble() {
         System.out.println("button menu test");
         System.out.println("Button ["+yearSelectDropMenu.getText()+"] \n is enabled "+ yearSelectDropMenu.isEnabled()
@@ -113,6 +93,9 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
                 && optionsButton.isDisplayed()
                 ;
     }
+    public BookerPlusResourceListPage selectResourceButtonClick() {
+        selectResourceButton.click();
+        return new BookerPlusResourceListPage(driver);
+    }
 
-
-}
+    }

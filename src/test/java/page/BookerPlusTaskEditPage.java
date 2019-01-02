@@ -1,11 +1,9 @@
 package page;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import java.util.List;
 
 public class BookerPlusTaskEditPage extends BookerPlusBasePage{
@@ -106,24 +104,35 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     private WebElement updateResourcesRadioButton;
     @FindBy (xpath = "(//div[@class='form-group']/button[@class='btn btn-success btn-sm' and contains(text(), 'Add')])[1]")
     private WebElement addButtonSetHoursMenu;
-
-    @FindBy (xpath = "//div[@class='form-group']")
+    @FindBy (xpath = "(//div[@class='form-group']/button[@class='btn btn-danger btn-sm' and contains(text(), 'Cancel')])[1]")
     private WebElement cancelButtonSetHoursMenu;
-
-    @FindBy (xpath = "//div[@class='form-group']")
+    @FindBy (xpath = "//div[@class='form-group']/button[@class='btn btn-primary btn-sm' and contains(text(), 'Clean')]")
     private WebElement cleanHoursButtonSetHoursMenu;
-
-    @FindBy(xpath = "//div[@class='btn-group']//*[contains(text(),'Set hours')]")
+    @FindBy(xpath = "//div[@class='btn-group']//button[contains(text(), 'Set hours')]")
     private WebElement setHourButton;
+    @FindBy (xpath = "//div[@class='btn-group']//button[contains(text(), 'Delete plans without hours')]")
+    private WebElement deletePlansWithoutPlansButton;
+
+    @FindBy(xpath = "//select[@id='selectedResource']")
+    private WebElement selectResourceDropMenu;
+    @FindBy(xpath = "//option[@value='1: Object']")
+    private WebElement selectResourceDropMenuFirstObject;
+    @FindBy(xpath = "//option[@value='2: Object']")
+    private WebElement selectResourceDropMenuSecondObject;
+    @FindBy(xpath = "//option[@value='0: Object']")
+    private WebElement selectResourceDropAllObjects;
+//    @FindBy (xpath = "//div[@class='form-group']")
+//    private WebElement yesImSureButton;
+
+    //*[@id="schedule"]/tbody/tr[1]/td[6] //для проверок суммы часов выделенных на ресурсы
+    //*[@id="schedule"]/tbody/tr[2]/td[7]
+    //*[@id="schedule"]/tbody/tr[3]/td[5]/div[1]/div
 
     public BookerPlusTaskEditPage(WebDriver driver) {
         this.driver=driver;
         PageFactory.initElements(driver, this);
     }
-
     int availableHours2018;
-    int lastWeekPreviousYear;
-
 
     public void set2018HoursWeeks(){
 
@@ -133,8 +142,9 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
         addButton.click();
         System.out.println("hours added");
     }
-    public void set2019HoursWeeks(){
-        editResourceButton.click();
+    public void set2019HoursWeeks() throws InterruptedException {
+//        editResourceButton.click(); //удаляет ресурс из первой строки
+        Thread.sleep(500);
         startWeek2019SelectButton.click();
         finishWeek2019SelectButton.click();
         setHourInputField.sendKeys("15");
@@ -161,7 +171,6 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     public void testLastPreviousWeekYear(int previousWeekYear, int lastWeekYear) {
         System.out.println("Previus week hour previous Week "+previousWeekYear+". \n "+lastWeekYear);
     }
-
     public boolean correctSumHoursTest(){
         int startNumHours = new Integer(startWeekSelectSumField.getText());
         int availableNumHours = new Integer(startWeekAvailableHours.getText());
@@ -200,12 +209,11 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
         Thread.sleep(1500);
         addButtonSetHoursMenu.click();
     }
-
     public void setEmptyHoursButtonClick() throws InterruptedException {
         setHourButton.click();
         setHoursMenuHourTextField.sendKeys("8");
         setHoursMenuStartTextField.sendKeys("08.01.2019");
-        setHoursMenuFinishTextField.sendKeys("28.02.2019");
+        setHoursMenuFinishTextField.sendKeys("28.03.2019");
         System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
                 +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
         Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
@@ -225,5 +233,54 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
         Thread.sleep(1500);
         addButtonSetHoursMenu.click();
     }
+    public void setCleanHoursButtonClick() throws InterruptedException {
+        setHourButton.click();
+        setHoursMenuHourTextField.sendKeys("7");
+        setHoursMenuStartTextField.sendKeys("29.01.2019");
+        setHoursMenuFinishTextField.sendKeys("15.02.2019");
+        System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
+                +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
+        Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
+        cleanHoursButtonSetHoursMenu.click();
+        Thread.sleep(1500);
+    }
+    public void setCancelButtonClick() throws InterruptedException {
+        setHourButton.click();
+        Thread.sleep(1500);
+        cancelButtonSetHoursMenu.click();
+        Thread.sleep(500);
+        deletePlansWithoutPlansButton.click();
+    }
 
+    public void deleteTaskWithoutPlans (){
+        deletePlansWithoutPlansButton.click();
+    }
+    public void addOneResources() throws InterruptedException {
+        selectResourceDropMenu.click();
+        selectResourceDropMenuFirstObject.click();
+        System.out.println("One resource add & delete");
+        Thread.sleep(1000);
+        deleteTaskWithoutPlans();
+    }
+    public void addAllResources() throws InterruptedException {
+        selectResourceDropMenu.click();
+        selectResourceDropAllObjects.click();
+        System.out.println("All resources add & delete");
+        Thread.sleep(1000);
+        deleteTaskWithoutPlans();
+    }
+
+    public void addSomeResourcesWithPlans() throws InterruptedException {
+        selectResourceDropMenu.click();
+        selectResourceDropMenuFirstObject.click();
+        selectResourceDropMenuSecondObject.click();
+        set2019HoursWeeks();
+        System.out.println("Some resources add & delete");
+        Thread.sleep(500);
+        deleteTaskWithoutPlans();
+        saveAllChanges2019Click();
+    }
+
+    public void sumTimeTesting() {
+    }
 }
