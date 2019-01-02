@@ -36,10 +36,9 @@ public class BookerPlusLoginTest extends BookerPlusBaseTest{
         //ResourceList test
         BookerPlusResourceListPage bookerPlusResourceListPage
                 = bookerPlusNewTaskEditPage.selectResourceButtonClick();
-        bookerPlusResourceListPage.selectButtonsTest();
-        bookerPlusResourceListPage.unSelectButtonsTest();
-//        bookerPlusResourceListPage.noOneResourceSelect();
-//        bookerPlusResourceListPage.oneResourceSelect();
+//        bookerPlusResourceListPage.selectButtonsTest();
+//        bookerPlusResourceListPage.unSelectButtonsTest();
+        bookerPlusResourceListPage.oneResourceSelect();
 
 
     }

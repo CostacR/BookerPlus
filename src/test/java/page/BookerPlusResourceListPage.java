@@ -38,10 +38,11 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
     private List<WebElement> planningTimeFields;
     @FindBy(xpath = "(//tr//td[@class='col-xs-3'])[1]")
     private WebElement resourceNameFirstObjectInList;
-    @FindBy(xpath = "//tr//td[@class='col-xs-2']//*[@class='glyphicon glyphicon-ok']")
-    private WebElement existedInSchedulerSelectedObjectInList;
-    @FindBy(xpath = "//tr//td[@class='col-xs-2']")
-    private List<WebElement> existedInSchedulerUnSelectedObjectInList;
+    @FindAll({
+            @FindBy(xpath = "//tr//td[@class='col-xs-2']//*[@class='glyphicon glyphicon-ok']"),
+            @FindBy(xpath = "//tr//td[@class='col-xs-2'][not(div[@class='glyphicon glyphicon-ok'])]")
+    })
+    private List <WebElement> existedInSchedulerObjects;
 
     public BookerPlusResourceListPage(WebDriver driver) {
         this.driver = driver;
@@ -50,8 +51,8 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
 
     public void unSelectButtonsTest() {
         int index = 1;
+        System.out.println("UnSelect buttons test");
         for (WebElement unselectButtonsResult : unSelectButtons) {
-            System.out.println("UnSelect buttons test");
             if
             (((unselectButtonsResult.isDisplayed() && unselectButtonsResult.isEnabled())) == true) {
                 System.out.println("Button# " + index + " is enabled");
@@ -64,8 +65,8 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
     }
     public void selectButtonsTest() {
        int index = 1;
+        System.out.println("Select buttons test");
         for (WebElement selectButtonsResult : selectButtons) {
-            System.out.println("Select buttons test");
             if
             (((selectButtonsResult.isDisplayed() && selectButtonsResult.isEnabled())) == true) {
                 System.out.println("Button# " + index + " is enabled");
@@ -76,11 +77,19 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
             }
         }
     }
-    public void noOneResourceSelect() {
-    }
 
     public void oneResourceSelect() {
+        int index = 1;
+        for (WebElement existedInSchedulerObject : existedInSchedulerObjects) {
+            if (existedInSchedulerObject.toString().contains("not(div")==true){
+                System.out.println("Element #"+index+" is NOT selected");
+            }
+            else{
+                System.out.println("Element #"+index+" is selected");
+            }
+            index++;
 
-    }
+
+        }}
 }
 
