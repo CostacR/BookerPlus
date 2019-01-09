@@ -91,5 +91,12 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
 
 
         }}
+
+    public void closeResourceList() {
+        System.out.println("CloseButton is:\n enabled - "+closeResourceListPage.isEnabled()
+                +"\nis displayed - "+closeResourceListPage.isDisplayed());
+        closeResourceListPage.click();
+
+    }
 }
 
