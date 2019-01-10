@@ -8,22 +8,30 @@ import page.BookerPlusSearchResultPage;
 
 public class BookerPlusScenarioSearchTest extends BookerPlusBaseTest{
     @DataProvider
-    public Object[][] validForUserAcountSearchTestDataProvider() {
+    public Object[][] validForPMSearchTestDataProvider() {
         return new Object[][]{
-//              {"login",       "password", "searchText"}
+//              {"login",       "password", "searchText"}//Project Manager Search
                 {"IUAD3102",    "test" ,    "c"
                 },
         };
     }
     @DataProvider
-    public Object [][] validForAdminAcountSearchTestDataProvider(){
+    public Object [][] validForLMSearchTestDataProvider(){
         return new Object[][]{
-//                {"login",     "password", "searchText"}
-                  {"IUAB0HPL",  "test",     "a"},
+//                {"login",     "password", "searchText"}//Line Manager Search
+                  {"IUAD1810",  "test",     "c"},
         };
     }
-    @Test (dataProvider = "validForUserAcountSearchTestDataProvider")
-    public void scenarioSearchPageTest(String userName, String userPassword, String findText)
+    @DataProvider
+    public Object [][] validForAdminSearchTestDataProvider(){
+        return new Object[][]{
+//                {"login",     "password", "searchText"}//Admin Search
+                {"IUAB0HPL",  "test",     "h"},
+        };
+    }
+
+    @Test (dataProvider = "validForPMSearchTestDataProvider")
+    public void scenarioSearchPMPageTest(String userName, String userPassword, String findText)
             throws InterruptedException {
         //login
         BookerPlusHomePage bookerPlusHomePage = bookerPlusLoginPage.login(userName, userPassword);
@@ -35,7 +43,22 @@ public class BookerPlusScenarioSearchTest extends BookerPlusBaseTest{
                 = bookerPlusHomePage.myProjectsClick();
         bookerPlusSearchResultPage.searchResult(findText);//тест всех поисковых фильтров под пользователем (Zhukova Valeriya (IUAD3102)
     }
-    @Test (dataProvider = "validForAdminAcountSearchTestDataProvider")
+
+    @Test (dataProvider = "validForLMSearchTestDataProvider")
+    public void scenarioSearchLMPageTest(String userName, String userPassword, String findText)
+            throws InterruptedException {
+        //login
+        BookerPlusHomePage bookerPlusHomePage = bookerPlusLoginPage.login(userName, userPassword);
+        Assert.assertTrue(bookerPlusHomePage.correctUserID(userName), "User ID does not match");
+        Assert.assertTrue(bookerPlusHomePage.logoutLinkAble(), "Logout Button not work");
+
+        //запуск поиска
+        BookerPlusSearchResultPage bookerPlusSearchResultPage
+                = bookerPlusHomePage.myProjectsClick();
+        bookerPlusSearchResultPage.searchResult(findText);//тест всех поисковых фильтров под пользователем (Zhukova Valeriya (IUAD3102)
+    }
+
+    @Test (dataProvider = "validForLMSearchTestDataProvider")
     public void scenarioSearchAdminPageTest(String userName, String userPassword, String findText)
             throws InterruptedException {
         //login

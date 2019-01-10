@@ -49,7 +49,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
 
     }
 
-
+    @Test (dataProvider = "validDataProvider", alwaysRun = true)
     public void scenarioResourceListTest (String userName, String userPassword, String taskCode, String taskName,
                                           String taskDescription) throws InterruptedException {
         //login
@@ -79,7 +79,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
 
 
     }
-
+    @Test (dataProvider = "validDataProvider", alwaysRun = true)
     public void scenarioSetHoursTest(String userName, String userPassword, String taskCode, String taskName,
                                      String taskDescription) throws InterruptedException {
 
@@ -113,7 +113,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         bookerPlusTaskEditPage.sumTimeTesting();
 
     }
-
+    @Test (dataProvider = "validDataProvider", alwaysRun = true)
         public void scenarioDeletePlansWithoutHoursTest(String userName, String userPassword, String taskCode, String taskName,
                 String taskDescription) throws InterruptedException {
 
@@ -139,7 +139,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         bookerPlusTaskEditPage.addSomeResourcesWithPlans();
 
     }
-
+    @Test (dataProvider = "validDataProvider", alwaysRun = true)
     public void scenarioSetYearsTest(String userName, String userPassword, String taskCode, String taskName,
                                      String taskDescription) throws InterruptedException {
 
@@ -174,7 +174,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         bookerPlusTaskEditPage.backPage(); //return on stage LineActivityMenu
 
     }
-
+    @Test (dataProvider = "validDataProvider", alwaysRun = true)
     public void scenarioBasicTest(String userName, String userPassword, String taskCode, String taskName, String taskDescription) throws InterruptedException {
 //        Assert.assertTrue(bookerPlusLoginPage.isPageLoaded(), "Login page is not loaded.");
 //        bookerPlusLoginPage.loginLinkClick();
@@ -185,10 +185,12 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         Assert.assertTrue(bookerPlusHomePage.correctUserID(userName), "User ID does not match");
         Assert.assertTrue(bookerPlusHomePage.logoutLinkAble(), "Logout Button not work");
         Assert.assertTrue(bookerPlusHomePage.homePageMenuTest(),"Home page menu not working");
+        //проверка LineActivity
         BookerPlusLineActivityPage bookerPlusLineActivityPage = bookerPlusHomePage.clickAllMenu();
         Assert.assertTrue(bookerPlusLineActivityPage.isPageLoaded(),"Line activity page not loaded");
         BookerPlusLineActivityTaskPage bookerPlusLineActivityTaskPage = bookerPlusLineActivityPage.clickTask();
         Assert.assertTrue(bookerPlusLineActivityTaskPage.isPageLoaded(),"Lineactivity page not loaded");
+        //создание И заполнение Task
         bookerPlusLineActivityTaskPage.createTask(taskCode, taskName, taskDescription);
         bookerPlusLineActivityTaskPage.editScheduleTask(taskName);
         BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
@@ -201,11 +203,10 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         bookerPlusTaskEditPage.saveAllChanges2018Click();//
 //        Assert.assertTrue(bookerPlusNewTaskEditPage.isMenuButtonAble(), "button work wrong");
         bookerPlusTaskEditPage.correctSumHoursTest();
-//        bookerPlusTaskEditPage.backPage();
 
         bookerPlusHomePage.clickAllMenu();
         bookerPlusLineActivityPage.clickTask();
-
+        //удаление Task
         BookerPlusDeleteTaskPage bookerPlusDeliteTaskPage = bookerPlusLineActivityTaskPage.delitTaskButtonClick();
         bookerPlusDeliteTaskPage.deleteTaskYesButton();
     }

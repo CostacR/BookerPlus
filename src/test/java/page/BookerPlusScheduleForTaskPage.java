@@ -20,7 +20,7 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
     @FindBy (xpath = "//tr//td[@class='leftPositionRows cutLink']/span/button[@type='button']/span")
     private List<WebElement> roleButtons;
 
-    @FindBy (xpath = "//tr//td/span[@title='ITDEV: FrontEnd Developer']")
+    @FindBy (xpath = "//tr//td/span[@title]")
     private List<WebElement> roleButtonNameFields;
 
 
@@ -36,19 +36,22 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
 
     public void buttonRoleList() throws InterruptedException {
         int indexP = 1;
-        int num=0;
+        int num=1;
+        Thread.sleep(500);
         for (WebElement roleButtonNameField : roleButtonNameFields){
-            if (roleButtonNameField.getText().toLowerCase().contains("FrontEnd Developer")==true){
-//                System.out.println("true"+index+" "+roleButtonNameField.getText());
+            if (roleButtonNameField.getText().toLowerCase().contains("FrontEnd Developer ")==true){
+                System.out.println("true"+indexP+" "+roleButtonNameField.getText());
+                System.out.println(roleButtonNameField.getText().toLowerCase().contains("frontend developer"));
                 num=indexP;
-
-
-            }
+                }
+            System.out.println(roleButtonNameField.getText()+indexP);
             indexP++;
         }
+        System.out.println("P = "+indexP);
         int indexR=1;
         for (WebElement roleButton : roleButtons) {
-        if (indexR==num){
+        if (indexR==indexP){
+            System.out.println("num - "+num);
             roleButton.click();
         }
             Thread.sleep(500);

@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BookerPlusHomePage extends BookerPlusBasePage{
 
-
     @FindBy (xpath = "//*[@id='navbar-ex-collapse']/ul[2]/li[1]/a/b")
     private WebElement userIdField;
     @FindBy (xpath = "//*[@id='navbar-ex-collapse']/ul[2]/li[2]/a")
@@ -70,10 +69,8 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
                 menuItemRequests.isDisplayed() && menuItemRequests.isEnabled() &&
                 menuItemHelp.isDisplayed() && menuItemHelp.isEnabled();
     }
-
     public void homePageMenuClick() {
     }
-
     public boolean correctActivePageReview() {
         System.out.println(activePageMarker.getText());//home
         System.out.println(activePageMarker.isEnabled() && activePageMarker.isDisplayed());//true
@@ -93,19 +90,15 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
     public boolean openRequestMenuReview() {
         return true;
     }
-
     public BookerPlusProjectPage selectProject() {
 
         return new BookerPlusProjectPage(driver);
     }
-
     public BookerPlusScheduleForTaskPage openProjectByTaskName() throws InterruptedException {
         Thread.sleep(500);
         taskNameLink.click();
         return new BookerPlusScheduleForTaskPage(driver);
     }
-
-
     public boolean homePageMenuTest() {
     return true;}
 }
