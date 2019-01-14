@@ -34,10 +34,15 @@ public class BookerPlusMyProjectTest extends BookerPlusBaseTest {
 //        BookerPlusProjectPage bookerPlusProjectPage = bookerPlusHomePage.selectProject();
 //        bookerPlusProjectPage.generalInformationReview();
 //        bookerPlusProjectPage.generalInformationTaskListReview();
-        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage
-                = bookerPlusHomePage.openProjectByTaskName();
+//        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage
+//                = bookerPlusHomePage.searchButtonsMenu();
+//                = bookerPlusHomePage.openProjectByTaskName();
 //        bookerPlusScheduleForTaskPage.buttonList();
-        bookerPlusScheduleForTaskPage.buttonRoleList();
+////        bookerPlusScheduleForTaskPage.buttonSecondClick();
+//        bookerPlusScheduleForTaskPage.buttonRoleList();
+////        bookerPlusScheduleForTaskPage.kopka();
+//        bookerPlusScheduleForTaskPage.rowspanSum();
+//        bookerPlusScheduleForTaskPage.roleArray();
 
     }
 

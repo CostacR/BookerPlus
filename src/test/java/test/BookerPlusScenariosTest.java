@@ -9,14 +9,13 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
     @DataProvider
     public Object[][] validDataProvider() {
         return new Object[][]{
-//              {"email", "password", "Task code", "Task name", "Task description"}
-                { "IUAD3102", "test" , "001RT", "testTask01", "test task discription. Automation test 001"
+//              {"email", "password", "Task name"}
+                { "IUAD3102", "test", "Implementation"
                 },
         };
     }
     @Test (dataProvider = "validDataProvider", alwaysRun = true)
-        public void scenarioHomePageTest (String userName, String userPassword, String taskCode, String taskName,
-                                          String taskDescription) throws InterruptedException {
+        public void scenarioHomePageReviewTest(String userName, String userPassword,  String taskName) throws InterruptedException {
         //login
         BookerPlusHomePage bookerPlusHomePage = bookerPlusLoginPage.login(userName, userPassword);
         Assert.assertTrue(bookerPlusHomePage.correctUserID(userName), "User ID does not match");
@@ -42,14 +41,20 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
 //        BookerPlusProjectPage bookerPlusProjectPage = bookerPlusHomePage.selectProject();
 //        bookerPlusProjectPage.generalInformationReview();
 //        bookerPlusProjectPage.generalInformationTaskListReview();
-        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage
-                = bookerPlusHomePage.openProjectByTaskName();
-        bookerPlusScheduleForTaskPage.buttonList();
-        bookerPlusScheduleForTaskPage.buttonRoleList();
+
+//        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage
+//                = bookerPlusHomePage.searchTaskButtonsMenu();
+        BookerPlusGeneralInformationPage bookerPlusGeneralInformationPage
+                = bookerPlusHomePage.searchButtonsMenu();
+        bookerPlusGeneralInformationPage.historyButtonClick();
+        bookerPlusGeneralInformationPage.allButtonsTest();
+//        bookerPlusScheduleForTaskPage.buttonList();
+//        bookerPlusScheduleForTaskPage.buttonRoleList();
+//        bookerPlusScheduleForTaskPage.sumHoursString();
 
     }
 
-    @Test (dataProvider = "validDataProvider", alwaysRun = true)
+    @Test (dataProvider = "validDataProvider", alwaysRun = false)
     public void scenarioResourceListTest (String userName, String userPassword, String taskCode, String taskName,
                                           String taskDescription) throws InterruptedException {
         //login
@@ -79,7 +84,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
 
 
     }
-    @Test (dataProvider = "validDataProvider", alwaysRun = true)
+    @Test (dataProvider = "validDataProvider", alwaysRun = false)
     public void scenarioSetHoursTest(String userName, String userPassword, String taskCode, String taskName,
                                      String taskDescription) throws InterruptedException {
 
@@ -113,7 +118,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         bookerPlusTaskEditPage.sumTimeTesting();
 
     }
-    @Test (dataProvider = "validDataProvider", alwaysRun = true)
+    @Test (dataProvider = "validDataProvider", alwaysRun = false)
         public void scenarioDeletePlansWithoutHoursTest(String userName, String userPassword, String taskCode, String taskName,
                 String taskDescription) throws InterruptedException {
 
@@ -139,7 +144,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         bookerPlusTaskEditPage.addSomeResourcesWithPlans();
 
     }
-    @Test (dataProvider = "validDataProvider", alwaysRun = true)
+    @Test (dataProvider = "validDataProvider", alwaysRun = false)
     public void scenarioSetYearsTest(String userName, String userPassword, String taskCode, String taskName,
                                      String taskDescription) throws InterruptedException {
 
@@ -174,7 +179,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         bookerPlusTaskEditPage.backPage(); //return on stage LineActivityMenu
 
     }
-    @Test (dataProvider = "validDataProvider", alwaysRun = true)
+    @Test (dataProvider = "validDataProvider", alwaysRun = false)
     public void scenarioBasicTest(String userName, String userPassword, String taskCode, String taskName, String taskDescription) throws InterruptedException {
 //        Assert.assertTrue(bookerPlusLoginPage.isPageLoaded(), "Login page is not loaded.");
 //        bookerPlusLoginPage.loginLinkClick();
