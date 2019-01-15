@@ -28,8 +28,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         //проверка кнопок-закладок главного меню
 //        Assert.assertTrue(bookerPlusHomePage.homePageMenuReview(), "Home page menu not working");
 
-        //переход на страницу HomePage
-        bookerPlusHomePage.homePageMenuClick();
+        bookerPlusHomePage.homePageMenuClick();//переход на страницу HomePage
         Assert.assertTrue(bookerPlusHomePage.correctActivePageReview(), "Active page NOT valid");
 //        bookerPlusHomePage.myTasksPageClick();
 //        Assert.assertTrue(bookerPlusHomePage.correctActivePageReview(), "Active page NOT valid");
@@ -39,18 +38,17 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
 //        Assert.assertTrue(bookerPlusHomePage.openRequestMenuReview(), "menu NOT work");
 //        //select Project by name from HomePage
 //        BookerPlusProjectPage bookerPlusProjectPage = bookerPlusHomePage.selectProject();
-//        bookerPlusProjectPage.generalInformationReview();
-//        bookerPlusProjectPage.generalInformationTaskListReview();
-
-//        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage
-//                = bookerPlusHomePage.searchTaskButtonsMenu();
-        BookerPlusGeneralInformationPage bookerPlusGeneralInformationPage
+        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage
                 = bookerPlusHomePage.searchButtonsMenu();
-        bookerPlusGeneralInformationPage.historyButtonClick();
-        bookerPlusGeneralInformationPage.allButtonsTest();
-//        bookerPlusScheduleForTaskPage.buttonList();
-//        bookerPlusScheduleForTaskPage.buttonRoleList();
-//        bookerPlusScheduleForTaskPage.sumHoursString();
+
+        /*открытие модалльного окна
+        проверка статуса выбор кнопки с нужным статусом
+        клик по кнопке закрытия модального окна*/
+
+        bookerPlusScheduleForTaskPage.buttonList();
+        bookerPlusScheduleForTaskPage.buttonRoleList();
+        bookerPlusScheduleForTaskPage.sumHoursString();
+        bookerPlusScheduleForTaskPage.rowSumHours();
 
     }
 

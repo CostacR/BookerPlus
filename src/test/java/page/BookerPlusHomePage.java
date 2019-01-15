@@ -41,39 +41,27 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
     private WebElement conflictsButton;
     @FindBy (xpath = "//ul/li/a/span")
     private List<WebElement> menuButtons;
-
-
-
     @FindBy (xpath = "(//tr//td//a[contains(text(), 'Customer Master Data: Unified Front-end')])[17]")
     private WebElement projectNameButton;
-
 
     public BookerPlusHomePage(WebDriver driver) {
         this.driver=driver;
         PageFactory.initElements(driver,this);
             }
-
-    public BookerPlusGeneralInformationPage searchButtonsMenu() throws InterruptedException {
-        completedButton.click();
-        Thread.sleep(1500);
-        projectNameButton.click();
-        Thread.sleep(1000);
-
-//        taskNameLink.click();
-        return new BookerPlusGeneralInformationPage(driver);
-    }
-
+//    public BookerPlusGeneralInformationPage searchButtonsMenu() throws InterruptedException {
+//        completedButton.click();
+//        Thread.sleep(1500);
+//        projectNameButton.click();
+//        Thread.sleep(1000);
+//
+////        taskNameLink.click();
+//        return new BookerPlusGeneralInformationPage(driver);
+//    }
     public BookerPlusLineActivityPage clickAllMenu() {
         menuItemLineActivity.click();
         System.out.println("Button LineActivity clicked");
         return new BookerPlusLineActivityPage(driver);
     }
-//    public BookerPlusScheduleForTaskPage searchButtonsMenu() throws InterruptedException {
-//        completedButton.click();
-//        Thread.sleep(1500);
-//        projectNameButton.click();
-////        taskNameLink.click();
-//        return new BookerPlusScheduleForTaskPage(driver);
 
     public boolean correctUserID(String userName) {
         return userIdField.getText().toLowerCase().contains(userName.toLowerCase());
@@ -134,19 +122,45 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
                 menuItemHelp.isDisplayed() && menuItemHelp.isEnabled();
     }
     public BookerPlusScheduleForTaskPage searchInProjectsButtonsMenu() throws InterruptedException {
-        for (WebElement menuButton : menuButtons){
-            menuButton.click();
-//            openProjectByTaskName();
+        for (WebElement menuButton : menuButtons) {
+            Thread.sleep(1000);
+            System.out.println(menuButton.getText() + " \n is displayed: " + menuButton.isDisplayed()
+                    + "\n is enabled: " + menuButton.isEnabled() + "\n");
+            Thread.sleep(1500);
+            if (menuButton.isEnabled() && menuButton.isDisplayed() == true) {
+                menuButton.click();
+                try {
+                    System.out.println("task is visible: "+taskNameLink.isDisplayed());
+                    searchTaskByName();
+                } catch (Exception e) {
+                }
+            }
         }
         return new BookerPlusScheduleForTaskPage(driver);
     }
 
     public BookerPlusScheduleForTaskPage searchTaskButtonsMenu() {
+
         return new BookerPlusScheduleForTaskPage(driver);
+    }
+//    public void menuButtonsClick(){
+//
+//    }
+    public void searchTaskByName() throws InterruptedException {
+        Thread.sleep(500);
+        System.out.println("task"+taskNameLink.isDisplayed());
+        taskNameLink.click();
     }
 
 
-//    public boolean openProjectByTaskName() throws InterruptedException {
+    public BookerPlusScheduleForTaskPage searchButtonsMenu() throws InterruptedException {
+        completedButton.click();
+        Thread.sleep(1500);
+//        projectNameButton.click();//заход через имя метода
+        taskNameLink.click();//заход черех имя таски
+        return new BookerPlusScheduleForTaskPage(driver);
+    }
+    //    public boolean openProjectByTaskName() throws InterruptedException {
 //        Thread.sleep(500);
 //        for (WebElement taskNameLink : taskNameLinks) {
 //            taskNameLink.click();

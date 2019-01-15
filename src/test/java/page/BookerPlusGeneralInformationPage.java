@@ -26,7 +26,7 @@ public class BookerPlusGeneralInformationPage extends BookerPlusBasePage{
     }
 
 
-    public void allButtonsTest() {
+    public void allButtonsTest() {//проверка статуса кнопки Закрытие Модального Окна + закрытие окна кликом по кнопке
         int indexM = 1;
         for (WebElement closeModalPageButton : closeModalPageButtons){
             System.out.println(indexM +
@@ -38,7 +38,7 @@ public class BookerPlusGeneralInformationPage extends BookerPlusBasePage{
         }
     }
 
-    public void historyButtonClick() throws InterruptedException {
+    public void historyButtonClick() throws InterruptedException {//метод выборочного клика по кнопка с вызовом модальных окон
         Thread.sleep(1000);
         historyFirstButton.click();
         Thread.sleep(500);

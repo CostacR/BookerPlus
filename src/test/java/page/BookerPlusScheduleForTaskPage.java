@@ -39,23 +39,22 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
     @FindBy(xpath = "//*[@id='fixTable']/tbody/tr[14]/td[@class='timeEachOfTd']")
     private List<WebElement> kopkaHoursTableElements;
 
-    @FindBy (xpath = "//tr[@class='demandSuccess']/td/div/a/ancestor-or-self::tr)[1]//td/div[2]")//строка Planned и
-    //(//tr[@class='demandSuccess']/td/div/a/ancestor-or-self::tr)[1]//td/div[2]
-    private List<WebElement> stringDataHours;
+    @FindBy (xpath = "(//tr[@class='demandSuccess']/td/div/a/ancestor-or-self::tr)[1]//td/div[2]")  //строка Planned и
+    private List<WebElement> stringDataHours;                                                       //строки с данными по часам
+
+    @FindBy (xpath = "//td/div/div[@class='underline text-nowrap cursor planTotalRef']")//первая строка Total Planned
+    private WebElement planHoursField;
+
+    @FindBy (xpath = "//td/div/div[@class='underline text-nowrap cursor planTotalRef']")
+    private List<WebElement> planHoursFields;
 
     @FindBy (xpath = "//tbody/tr/td[@rowspan]/span/ancestor-or-self::td")
-    private List<WebElement>rowspanElements;
-
-
+    private List<WebElement>rowspanElements;//блоки Рабочих Ролей
 
     public BookerPlusScheduleForTaskPage(WebDriver driver) {
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
-
-    String [] roleNameFields ;
-
-
 
     public void roleArray(){
         int indexArray = 0;
@@ -76,8 +75,8 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
     }
     public void buttonList(){
         for (WebElement menuButton : menuButtons) {
-//            System.out.println(menuButton.getText());//
         }}
+
     public void buttonRoleList() throws InterruptedException {
         Thread.sleep(2000);
         int index = 0;
@@ -113,6 +112,39 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
             }
         System.out.println(rsSum);
     }
+
+    public void rowSumHours(){
+        int rowSum=0;
+        int indexRowSum=0;
+        int indexRowElements =0;
+        int value;
+
+        for (WebElement stringDataHour : stringDataHours){
+            rowSum = rowSum + new Integer(stringDataHour.getText());
+                indexRowSum++;
+                for (WebElement rowspanElement : rowspanElements){
+                    indexRowElements++;
+                    if (indexRowElements==indexRowSum){
+                        value = Integer.parseInt(rowspanElement.getText().replaceAll("[^0-9]", ""));//проработать цикл!!!
+                    }
+
+                }
+
+
+//            System.out.println(indexSum+" "+stringDataHour.getText());
+//            System.out.println("Current Sum: "+rowSum);
+        }
+        System.out.println(rowSum);
+        if (rowSum == assertSumHours()){
+            System.out.println("Sum correct");
+        }
+    }
+
+    public int assertSumHours(){
+        int value;
+        return value = Integer.parseInt(planHoursField.getText().replaceAll("[^0-9]", ""));
+    }
+
 
 
 }
