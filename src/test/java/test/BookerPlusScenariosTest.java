@@ -38,17 +38,20 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
 //        Assert.assertTrue(bookerPlusHomePage.openRequestMenuReview(), "menu NOT work");
 //        //select Project by name from HomePage
 //        BookerPlusProjectPage bookerPlusProjectPage = bookerPlusHomePage.selectProject();
-        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage
-                = bookerPlusHomePage.searchButtonsMenu();
+        /*Сценарий поиска таски по имени в закладках.
+         вход в нужную таску.
+         проверка сум часов запланированых по всем строкам
+        * */
+        BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage = bookerPlusHomePage.searchButtonsMenu();
 
-        /*открытие модалльного окна
-        проверка статуса выбор кнопки с нужным статусом
-        клик по кнопке закрытия модального окна*/
+
 
         bookerPlusScheduleForTaskPage.buttonList();
         bookerPlusScheduleForTaskPage.buttonRoleList();
         bookerPlusScheduleForTaskPage.sumHoursString();
-        bookerPlusScheduleForTaskPage.rowSumHours();
+        bookerPlusScheduleForTaskPage.hoursArray();
+
+//        bookerPlusScheduleForTaskPage.sumHoursRows();
 
     }
 

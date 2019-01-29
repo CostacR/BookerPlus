@@ -23,19 +23,14 @@ public class BookerPlusLineActivityTaskPage extends BookerPlusBasePage{
     private WebElement saveButton;
     @FindBy (xpath = "//button[@class='btn btn-default']")
     private WebElement resetButton;
-
     @FindBy (xpath = "//*[@class='table  table-striped table-condensed table-responsive']/tbody/tr[10]/descendant::button[@title = 'testTask01']")
     private WebElement taskNameField;
-
-    @FindBy (xpath = "//*[@class='table  table-striped table-condensed table-responsive']/tbody/tr[10]/descendant::button[@title = 'Calendar']")
+    @FindBy (xpath = "//*[@class='table  table-striped table-condensed table-responsive']/tbody/tr[10]/descendant::button[@title = 'Calendar']/span")
     private WebElement scheduleTaskButtons;
-
     @FindBy (xpath = "//*[@class='table  table-striped table-condensed table-responsive']/tbody/tr[10]/descendant::button[@title = 'Delete task']")
     private WebElement scheduleDeliteTaskButtons;
-
     @FindBy (xpath = "//button[@class='btn btn-primary btn-sm']")
     private List<WebElement> scheduleButtons;
-
     @FindBy (xpath = "//b[contains(text(),'Training Preparation')]")
     private WebElement fieldforStartClick;
 
@@ -64,14 +59,12 @@ public class BookerPlusLineActivityTaskPage extends BookerPlusBasePage{
         taskNameTextField.sendKeys(taskName);
         taskDescriptionTextField.click();
         taskDescriptionTextField.sendKeys(taskDescription);
-
         saveButton.click();
-
-//        System.out.println(taskNameField.getText());
         return new BookerPlusNewTaskPage(driver);
     }
-    public BookerPlusNewTaskEditPage ScheduleButtonClick() {
-        System.out.println("new task click");
+    public BookerPlusNewTaskEditPage ScheduleButtonClick() throws InterruptedException {
+        Thread.sleep(1000);
+        //new task click
         scheduleTaskButtons.click();
         return new BookerPlusNewTaskEditPage(driver);
     }

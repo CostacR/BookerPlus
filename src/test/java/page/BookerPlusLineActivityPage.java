@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BookerPlusLineActivityPage extends BookerPlusBasePage{
 
-    @FindBy (xpath = "//tr[@_ngcontent-c8]/td/a")
+    @FindBy (xpath = "//tr/td/a")
     private WebElement lineActivityProjectField;
 
     public BookerPlusLineActivityPage(WebDriver driver) {
@@ -22,9 +22,9 @@ public class BookerPlusLineActivityPage extends BookerPlusBasePage{
                 getCurrentTitle().toLowerCase().contains("booker")
                 ;}
 
-    public BookerPlusLineActivityTaskPage clickTask() {
-        System.out.println("ActivityCode link: "+lineActivityProjectField.getText()+"\n is visibled: "
-                +lineActivityProjectField.isDisplayed()+"\n is enabled: "+lineActivityProjectField.isEnabled());
+    public BookerPlusLineActivityTaskPage clickTask() throws InterruptedException {
+        Thread.sleep(1500);
+        System.out.println("+1500");
         lineActivityProjectField.click();
         return new BookerPlusLineActivityTaskPage(driver);
     }

@@ -27,8 +27,8 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
     private WebElement menuItemHelp;
     @FindBy (xpath = "//a[@class='active']")
     private WebElement activePageMarker;
-    @FindBy (xpath = "//tr//td/a[contains(text(), 'Implementation')]")//сделать универсальным!!!
-    private List<WebElement> taskNameLinks;
+        @FindBy (xpath = "//tr//td/a[contains(text(), 'Implementation')]")//сделать универсальным!!!
+    private List<WebElement> tasksNameLinks;
     @FindBy (xpath = "(//tr//td/a[contains(text(), 'Implementation')])[3]")
     private WebElement taskNameLink;
     @FindBy (xpath = "//ul/li/a/span[contains(text(), 'Open')]")
@@ -43,6 +43,8 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
     private List<WebElement> menuButtons;
     @FindBy (xpath = "(//tr//td//a[contains(text(), 'Customer Master Data: Unified Front-end')])[17]")
     private WebElement projectNameButton;
+    @FindBy (xpath = "//div/ul/li/a[@routerlink='/profile']")
+    private WebElement loginTextField;
 
     public BookerPlusHomePage(WebDriver driver) {
         this.driver=driver;
@@ -57,6 +59,15 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
 ////        taskNameLink.click();
 //        return new BookerPlusGeneralInformationPage(driver);
 //    }
+
+    String logins="";
+    public String loginsList() {
+        this.logins=logins;
+        logins = logins+loginTextField.getText();
+        System.out.println(logins+" ");
+        return logins;
+    }
+
     public BookerPlusLineActivityPage clickAllMenu() {
         menuItemLineActivity.click();
         System.out.println("Button LineActivity clicked");
@@ -155,14 +166,20 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
 
     public BookerPlusScheduleForTaskPage searchButtonsMenu() throws InterruptedException {
         completedButton.click();
-        Thread.sleep(1500);
+        Thread.sleep(1000);
 //        projectNameButton.click();//заход через имя метода
-        taskNameLink.click();//заход черех имя таски
+        taskNameLink.click();//заход через имя таски
         return new BookerPlusScheduleForTaskPage(driver);
     }
+
+    public void logOut() throws InterruptedException {
+        Thread.sleep(500);
+        logoutLink.click();
+    }
+
     //    public boolean openProjectByTaskName() throws InterruptedException {
-//        Thread.sleep(500);
-//        for (WebElement taskNameLink : taskNameLinks) {
+//        Thread.sleep(500);А
+//        for (WebElement taskNameLink : tasksNameLinks) {
 //            taskNameLink.click();
 //            return taskNameLink.isDisplayed() && taskNameLink.isEnabled();
 //    }  return false;

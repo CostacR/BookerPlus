@@ -200,7 +200,7 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     public void setNewResourcesButtonClick() throws InterruptedException {
         setHourButton.click();
         setHoursMenuHourTextField.sendKeys("10");
-        setHoursMenuStartTextField.sendKeys("01.01.2019");
+        setHoursMenuStartTextField.sendKeys("28.01.2019");
         setHoursMenuFinishTextField.sendKeys("24.02.2019");
         System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
                 +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
@@ -212,13 +212,13 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     public void setEmptyHoursButtonClick() throws InterruptedException {
         setHourButton.click();
         setHoursMenuHourTextField.sendKeys("8");
-        setHoursMenuStartTextField.sendKeys("08.01.2019");
+        setHoursMenuStartTextField.sendKeys("28.01.2019");
         setHoursMenuFinishTextField.sendKeys("28.03.2019");
         System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
                 +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
         Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
         emptyHoursRadioButton.click();
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         addButtonSetHoursMenu.click();
     }
     public void setUpdateResourcesButtonClick() throws InterruptedException {
@@ -235,6 +235,7 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     }
     public void setCleanHoursButtonClick() throws InterruptedException {
         setHourButton.click();
+        Thread.sleep(300);
         setHoursMenuHourTextField.sendKeys("7");
         setHoursMenuStartTextField.sendKeys("29.01.2019");
         setHoursMenuFinishTextField.sendKeys("15.02.2019");

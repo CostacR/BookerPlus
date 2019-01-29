@@ -15,7 +15,7 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
     @FindBy(xpath = "//div[@class='modal-header panel-heading']/b[contains(text(), 'Resource list')]")
     private WebElement resourceListNameField;
     @FindBy(xpath = "(//div[@class='modal-header panel-heading']//button[@class='close pull-right'])[2]")
-    private WebElement closeResourceListPage;
+    private List<WebElement> closeResourceListPageButtons;
     @FindBy(xpath = "(//div[@class='btn-block btn-group margin-bottom']//button['Select all'])[1]")
     private WebElement selectAllButton;
     @FindBy(xpath = "(//div[@class='btn-block btn-group margin-bottom']//button['Select all'])[2]")
@@ -26,7 +26,6 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
     private List<WebElement> selectButtons;
     @FindBy(xpath = "//button[@class='btn btn-default btn-sm' and contains(text(), 'Unselect')]")
     private List<WebElement> unSelectButtons;
-
     @FindBy(xpath = "//tr[@class='total']/td[@class='total']")//55
     private List<WebElement> workingTimeFields;
     @FindBy(xpath = "//tr[@class='firstline']/td[@class='text-center time']")//53
@@ -39,8 +38,9 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
     @FindBy(xpath = "(//tr//td[@class='col-xs-3'])[1]")
     private WebElement resourceNameFirstObjectInList;
     @FindAll({
-            @FindBy(xpath = "//tr//td[@class='col-xs-2']//*[@class='glyphicon glyphicon-ok']"),
-            @FindBy(xpath = "//tr//td[@class='col-xs-2'][not(div[@class='glyphicon glyphicon-ok'])]")
+            @FindBy(xpath = "//tr//td[@class='col-xs-2']")
+//            @FindBy(xpath = "//tr//td[@class='col-xs-2']//*[@class='glyphicon glyphicon-ok']"),
+//            @FindBy(xpath = "//tr//td[@class='col-xs-2'][not(div[@class='glyphicon glyphicon-ok'])]")
     })
     private List <WebElement> existedInSchedulerObjects;
 
@@ -49,6 +49,20 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
         PageFactory.initElements(driver, this);
     }
 
+    public void oneResourceSelect() {
+        int index = 0;
+        for (WebElement existedInSchedulerObject : existedInSchedulerObjects) {
+            index++;
+//            System.out.println(index+existedInSchedulerObject.getAttribute("style"));
+            if (existedInSchedulerObject.getAttribute("style").toLowerCase().contains("background")==false){
+                System.out.println("Element #"+index+" is NOT selected");
+            }else{
+                System.out.println("Element #"+index+" is selected");
+            }
+
+
+
+        }}
     public void unSelectButtonsTest() {
         int index = 1;
         System.out.println("UnSelect buttons test");
@@ -77,26 +91,13 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
             }
         }
     }
-
-    public void oneResourceSelect() {
-        int index = 1;
-        for (WebElement existedInSchedulerObject : existedInSchedulerObjects) {
-            if (existedInSchedulerObject.toString().contains("not(div")==true){
-                System.out.println("Element #"+index+" is NOT selected");
-            }
-            else{
-                System.out.println("Element #"+index+" is selected");
-            }
-            index++;
-
-
-        }}
-
     public void closeResourceList() {
-        System.out.println("CloseButton is:\n enabled - "+closeResourceListPage.isEnabled()
-                +"\nis displayed - "+closeResourceListPage.isDisplayed());
-        closeResourceListPage.click();
+        for (WebElement closeResourceListPageButton : closeResourceListPageButtons){//поиск и клик на кнопке закрытия модального окна
 
-    }
+            if (closeResourceListPageButton.isDisplayed() == true && closeResourceListPageButton.isEnabled() == true){
+                closeResourceListPageButton.click();
+            }
+        }
+        }
 }
 
