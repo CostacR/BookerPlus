@@ -200,8 +200,8 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     public void setNewResourcesButtonClick() throws InterruptedException {
         setHourButton.click();
         setHoursMenuHourTextField.sendKeys("10");
-        setHoursMenuStartTextField.sendKeys("28.01.2019");
-        setHoursMenuFinishTextField.sendKeys("24.02.2019");
+        setHoursMenuStartTextField.sendKeys("28.02.2019");
+        setHoursMenuFinishTextField.sendKeys("24.03.2019");
         System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
                 +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
         Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
@@ -212,8 +212,8 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     public void setEmptyHoursButtonClick() throws InterruptedException {
         setHourButton.click();
         setHoursMenuHourTextField.sendKeys("8");
-        setHoursMenuStartTextField.sendKeys("28.01.2019");
-        setHoursMenuFinishTextField.sendKeys("28.03.2019");
+        setHoursMenuStartTextField.sendKeys("28.02.2019");
+        setHoursMenuFinishTextField.sendKeys("28.04.2019");
         System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
                 +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
         Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
@@ -224,8 +224,8 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     public void setUpdateResourcesButtonClick() throws InterruptedException {
         setHourButton.click();
         setHoursMenuHourTextField.sendKeys("7");
-        setHoursMenuStartTextField.sendKeys("05.02.2019");
-        setHoursMenuFinishTextField.sendKeys("25.02.2019");
+        setHoursMenuStartTextField.sendKeys("15.02.2019");
+        setHoursMenuFinishTextField.sendKeys("25.05.2019");
         System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
                 +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
         Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
@@ -237,8 +237,8 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
         setHourButton.click();
         Thread.sleep(300);
         setHoursMenuHourTextField.sendKeys("7");
-        setHoursMenuStartTextField.sendKeys("29.01.2019");
-        setHoursMenuFinishTextField.sendKeys("15.02.2019");
+        setHoursMenuStartTextField.sendKeys("21.02.2019");
+        setHoursMenuFinishTextField.sendKeys("15.04.2019");
         System.out.println("Add button: \nis enabled: "+addButtonSetHoursMenu.isEnabled()
                 +"\n is displayed:"+addButtonSetHoursMenu.isDisplayed());
         Assert.assertTrue(addButtonSetHoursMenu.isEnabled() && addButtonSetHoursMenu.isDisplayed());
