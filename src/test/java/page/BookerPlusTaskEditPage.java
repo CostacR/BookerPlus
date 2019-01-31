@@ -7,87 +7,60 @@ import org.testng.Assert;
 import java.util.List;
 
 public class BookerPlusTaskEditPage extends BookerPlusBasePage{
-    @FindBy (xpath = "//tbody//tr[3]//td[3]")
-    private WebElement startWeek2018SelectButton;
-
-    @FindBy (xpath = "//tbody//tr[3]//td[4]")
-    private WebElement finishWeek2018SelectButton;
-
     @FindBy (xpath = "//tbody//tr[3]//td[4]")
     private WebElement startWeek2019SelectButton;
-
-    @FindBy (xpath = "//tbody//tr[3]//td[7]")
+    @FindBy (xpath = "//tbody//tr[3]//td[8]")
     private WebElement finishWeek2019SelectButton;
-
+    @FindBy (xpath = "//tbody//tr[3]//td[4]")
+    private WebElement startWeek2020SelectButton;
+    @FindBy (xpath = "//tbody//tr[3]//td[7]")
+    private WebElement finishWeek2020SelectButton;
     @FindBy (xpath = "//*[@id='schedule']/tbody/tr[2]/td[1]/div/button[1]")
     private WebElement editResourceButton;
-
     @FindBy (xpath = "//input[@id='scheduleHour']")
     private WebElement setHourInputField;
-
     @FindBy (xpath = "//button[contains(text(),'Add')]")
     private WebElement addButton;
-
     @FindBy (xpath = "//span[@class='btn btn-warning btn-sm']")
     private WebElement clearHoursButton;
-
     @FindBy (xpath = "//span[@class='btn btn-danger btn-sm']")
     private WebElement cancelButton;
-
-    @FindBy(xpath = "//button[contains(text(),'all changes')]")
-    private WebElement saveAllChanges2018Button;
-
     @FindBy(xpath = "//button[contains(text(),'all changes')]")
     private WebElement saveAllChanges2019Button;
-
+    @FindBy(xpath = "//button[contains(text(),'all changes')]")
+    private WebElement saveAllChanges2020Button;
     @FindBy(xpath = "//tr[@class='total']//td[5]")
     private WebElement startWeekSelectSumField;
-
     @FindBy (xpath = "//*[@id='schedule']/thead/tr/th[6]/text()")
     private WebElement startRangeWeek2019Year;
-
     @FindBy (xpath = "//*[@id='schedule']/thead/tr/th[16]/text()")
     private WebElement endRangeWeek2019Year;
-
     @FindBy(xpath = "//tr//th[5]")
     private WebElement startWeekField;
-
     @FindBy(xpath = "//*[@id='schedule']/tbody/tr[2]/td[6]")
     private WebElement startWeekAvailableHours;
-
     @FindBy(xpath = "//tr[@class='total']//td[15]")
     private WebElement finishWeekSelectField;
-
     @FindBy (xpath = "//*[@id='schedule']/tbody/tr[3]/td[1]")
     private WebElement lastWeekPreviousYearField;
-
     @FindBy(xpath = "//tr//th[16]")
     private WebElement finishWeekField;
-
     @FindBy(xpath = "//tr[@class='firstline']//td[11]")
     private WebElement finishWeekAvailableHours;
-
     @FindBy (xpath = "//a[@routerlink='/lineactivity']")
     private WebElement lineActivityUpperMenuButton;
-
     @FindBy (xpath = "(//div[@class='col-sm-offset-2 col-sm-10']//button[@class='btn btn-success'])[10]")
     private WebElement scheduleDeliteTaskButtons;
-
     @FindBy (xpath = "//div[contains(@class,'modal fade in')]//button[contains(@type,'button')][contains(text(),\"Yes, I'm sure\")]")
     private WebElement yesImSureButton;
-
     @FindBy (xpath = "//*[@id='schedule']/tbody/tr[3]/td/div/div")
     private List<WebElement> sumHoursResults;
-
     @FindBy (xpath = "//*[@id='schedule']/tbody/tr[3]/td[3]")
     private WebElement totalHours;
-
     @FindBy (xpath = "//*[@id='navbar-ex-collapse']/ul[1]/li[3]/a")
     private WebElement lineActivityMenuButton;
-
     @FindBy (xpath = "//*[@id='scheduleHour']")
     private WebElement setHoursMenuHourTextField;
-
     @FindBy (xpath = "//*[@id='startWeek']")
     private WebElement setHoursMenuStartTextField;
     @FindBy (xpath = "(//button[@class='btn btn-default']//i[@class='glyphicon glyphicon-calendar'])[1]")
@@ -134,30 +107,30 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     }
     int availableHours2018;
 
-    public void set2018HoursWeeks(){
+    public void set2019HoursWeeks(){
 
-        startWeek2018SelectButton.click();
-        finishWeek2018SelectButton.click();
-        setHourInputField.sendKeys("10");
-        addButton.click();
-        System.out.println("hours added");
-    }
-    public void set2019HoursWeeks() throws InterruptedException {
-//        editResourceButton.click(); //удаляет ресурс из первой строки
-        Thread.sleep(500);
         startWeek2019SelectButton.click();
         finishWeek2019SelectButton.click();
+        setHourInputField.sendKeys("10");
+        addButton.click();
+        System.out.println("hours 2018 added");
+    }
+    public void set2020HoursWeeks() throws InterruptedException {
+//        editResourceButton.click(); //удаляет ресурс из первой строки
+        Thread.sleep(500);
+        startWeek2020SelectButton.click();
+        finishWeek2020SelectButton.click();
         setHourInputField.sendKeys("15");
         addButton.click();
-        System.out.println("hours added");
+        System.out.println("hours 2019 added");
       }
-    public void saveAllChanges2018Click() throws InterruptedException {
-        Thread.sleep(2000);
-        saveAllChanges2018Button.click();
-    }
     public void saveAllChanges2019Click() throws InterruptedException {
         Thread.sleep(2000);
         saveAllChanges2019Button.click();
+    }
+    public void saveAllChanges2020Click() throws InterruptedException {
+        Thread.sleep(2000);
+        saveAllChanges2020Button.click();
     }
     public void backPage() throws InterruptedException {
         Thread.sleep(500);
@@ -252,7 +225,6 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
         Thread.sleep(500);
         deletePlansWithoutPlansButton.click();
     }
-
     public void deleteTaskWithoutPlans (){
         deletePlansWithoutPlansButton.click();
     }
@@ -270,18 +242,25 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
         Thread.sleep(1000);
         deleteTaskWithoutPlans();
     }
-
     public void addSomeResourcesWithPlans() throws InterruptedException {
         selectResourceDropMenu.click();
         selectResourceDropMenuFirstObject.click();
+        Thread.sleep(300);
+        selectResourceDropMenu.click();
         selectResourceDropMenuSecondObject.click();
-        set2019HoursWeeks();
+        set2020HoursWeeks();
         System.out.println("Some resources add & delete");
         Thread.sleep(500);
         deleteTaskWithoutPlans();
-        saveAllChanges2019Click();
+        saveAllChanges2020Click();
+    }
+    public void sumTimeTesting() {
     }
 
-    public void sumTimeTesting() {
+    public void add2020AndEditTask() throws InterruptedException {
+        Thread.sleep(300);
+        selectResourceDropMenu.click();
+        selectResourceDropMenuSecondObject.click();
+        System.out.println("Selected resources: "+selectResourceDropMenuSecondObject.getText());
     }
 }

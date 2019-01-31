@@ -34,13 +34,13 @@ public class BookerPlusScenarioBasicTest extends BookerPlusBaseTest{
         BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
                 = bookerPlusLineActivityTaskPage.ScheduleButtonClick();
         BookerPlusTaskEditPage bookerPlusTaskEditPage
-                = bookerPlusNewTaskEditPage.addAndEditTask();
+                = bookerPlusNewTaskEditPage.add2019AndEditTask();
         Assert.assertTrue(bookerPlusNewTaskEditPage.isMenuButtonAble(), "button work wrong");
         //добавить проверки кнопок!!!
 
         //установка year/hours Demand
-        bookerPlusTaskEditPage.set2018HoursWeeks();
-        bookerPlusTaskEditPage.saveAllChanges2018Click();//
+        bookerPlusTaskEditPage.set2019HoursWeeks();
+        bookerPlusTaskEditPage.saveAllChanges2019Click();//
 //        Assert.assertTrue(bookerPlusNewTaskEditPage.isMenuButtonAble(), "button work wrong");
         bookerPlusTaskEditPage.correctSumHoursTest();
 

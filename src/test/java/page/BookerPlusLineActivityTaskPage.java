@@ -51,6 +51,7 @@ public class BookerPlusLineActivityTaskPage extends BookerPlusBasePage{
                 getCurrentTitle().toLowerCase().contains("booker")
                 ;}
     public BookerPlusNewTaskPage createTask(String taskCode, String taskName, String taskDescription) throws InterruptedException {
+        Thread.sleep(300);
         createNewTastButton.click();
         Thread.sleep(3000);
         taskCodeTextField.click();

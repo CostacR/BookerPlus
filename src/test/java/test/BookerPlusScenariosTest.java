@@ -104,17 +104,17 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
                 = bookerPlusLineActivityTaskPage.ScheduleButtonClick();
         bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
-        BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.addAndEditTask();
+        BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.add2019AndEditTask();
 
         //setHours test
         bookerPlusTaskEditPage.setNewResourcesButtonClick();
-        bookerPlusTaskEditPage.saveAllChanges2019Click();
+        bookerPlusTaskEditPage.saveAllChanges2020Click();
         bookerPlusTaskEditPage.setEmptyHoursButtonClick();
-        bookerPlusTaskEditPage.saveAllChanges2019Click();
+        bookerPlusTaskEditPage.saveAllChanges2020Click();
         bookerPlusTaskEditPage.setUpdateResourcesButtonClick();
-        bookerPlusTaskEditPage.saveAllChanges2019Click();
+        bookerPlusTaskEditPage.saveAllChanges2020Click();
         bookerPlusTaskEditPage.setCleanHoursButtonClick();
-        bookerPlusTaskEditPage.saveAllChanges2019Click();
+        bookerPlusTaskEditPage.saveAllChanges2020Click();
         bookerPlusTaskEditPage.setCancelButtonClick();
         bookerPlusTaskEditPage.sumTimeTesting();
 
@@ -138,7 +138,7 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
             BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
                     =  bookerPlusLineActivityTaskPage.ScheduleButtonClick();
             bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
-            BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.addAndEditTask();
+            BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.add2019AndEditTask();
         //delete plans without hours
         bookerPlusTaskEditPage.addOneResources();
         bookerPlusTaskEditPage.addAllResources();
@@ -168,13 +168,13 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
                 =  bookerPlusLineActivityTaskPage.ScheduleButtonClick();
         BookerPlusTaskEditPage bookerPlusTaskEditPage
-                = bookerPlusNewTaskEditPage.addAndEditTask();//2018
-        bookerPlusTaskEditPage.set2018HoursWeeks();
-        bookerPlusTaskEditPage.saveAllChanges2018Click();//
-        bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
+                = bookerPlusNewTaskEditPage.add2019AndEditTask();//2018
         bookerPlusTaskEditPage.set2019HoursWeeks();
+        bookerPlusTaskEditPage.saveAllChanges2019Click();//
+        bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
+        bookerPlusTaskEditPage.set2020HoursWeeks();
         bookerPlusTaskEditPage.correctSumHoursTest();
-        bookerPlusTaskEditPage.saveAllChanges2019Click();
+        bookerPlusTaskEditPage.saveAllChanges2020Click();
         bookerPlusTaskEditPage.sumHoursAddTest();
 
         bookerPlusTaskEditPage.backPage(); //return on stage LineActivityMenu
@@ -202,11 +202,11 @@ public class BookerPlusScenariosTest extends BookerPlusBaseTest{
         BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
                 = bookerPlusLineActivityTaskPage.ScheduleButtonClick();
         BookerPlusTaskEditPage bookerPlusTaskEditPage
-                = bookerPlusNewTaskEditPage.addAndEditTask();
+                = bookerPlusNewTaskEditPage.add2019AndEditTask();
         Assert.assertTrue(bookerPlusNewTaskEditPage.isMenuButtonAble(), "button work wrong");
         //добавить проверки кнопок
-        bookerPlusTaskEditPage.set2018HoursWeeks();
-        bookerPlusTaskEditPage.saveAllChanges2018Click();//
+        bookerPlusTaskEditPage.set2019HoursWeeks();
+        bookerPlusTaskEditPage.saveAllChanges2019Click();//
 //        Assert.assertTrue(bookerPlusNewTaskEditPage.isMenuButtonAble(), "button work wrong");
         bookerPlusTaskEditPage.correctSumHoursTest();
 

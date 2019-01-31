@@ -47,33 +47,7 @@ public class BookerPlusLineActivityTest extends BookerPlusBaseTest{
     }
 
 
-////
-////        @Test(dataProvider ="validForSearchTestDataProvider")
-////        public void scenarioDeletePlansWithoutHoursTest(String userName, String userPassword, String taskCode, String taskName,
-////                String taskDescription) throws InterruptedException {
-////
-////            //login
-////            BookerPlusHomePage bookerPlusHomePage = bookerPlusLoginPage.login(userName, userPassword);
-////            Assert.assertTrue(bookerPlusHomePage.correctUserID(userName), "User ID does not match");
-////            Assert.assertTrue(bookerPlusHomePage.logoutLinkAble(), "Logout Button not work");
-////            //homePage test
-////            Assert.assertTrue(bookerPlusHomePage.homePageMenuTest(), "Home page menu not working");
-////            BookerPlusLineActivityPage bookerPlusLineActivityPage = bookerPlusHomePage.clickAllMenu();
-////            Assert.assertTrue(bookerPlusLineActivityPage.isPageLoaded(), "Line activity page not loaded");
-////            //lineActivity Page
-////            BookerPlusLineActivityTaskPage bookerPlusLineActivityTaskPage = bookerPlusLineActivityPage.clickTask();
-////            Assert.assertTrue(bookerPlusLineActivityTaskPage.isPageLoaded(), "Lineactivity page not loaded");
-////            //edit new schedule
-////            BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
-////                    =  bookerPlusLineActivityTaskPage.ScheduleButtonClick();
-////            bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
-////            BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.addAndEditTask();
-////        //delete plans without hours
-////        bookerPlusTaskEditPage.addOneResources();
-////        bookerPlusTaskEditPage.addAllResources();
-////        bookerPlusTaskEditPage.addSomeResourcesWithPlans();
-////
-////    }
+
 ////
 ////    @Test(dataProvider ="validForSearchTestDataProvider")
 ////    public void scenarioSetYearsTest(String userName, String userPassword, String taskCode, String taskName,
@@ -98,13 +72,13 @@ public class BookerPlusLineActivityTest extends BookerPlusBaseTest{
 ////        BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
 ////                =  bookerPlusLineActivityTaskPage.ScheduleButtonClick();
 ////        BookerPlusTaskEditPage bookerPlusTaskEditPage
-////                = bookerPlusNewTaskEditPage.addAndEditTask();//2018
-////        bookerPlusTaskEditPage.set2018HoursWeeks();
-////        bookerPlusTaskEditPage.saveAllChanges2018Click();//
-////        bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
+////                = bookerPlusNewTaskEditPage.add2019AndEditTask();//2018
 ////        bookerPlusTaskEditPage.set2019HoursWeeks();
+////        bookerPlusTaskEditPage.saveAllChanges2019Click();//
+////        bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
+////        bookerPlusTaskEditPage.set2020HoursWeeks();
 ////        bookerPlusTaskEditPage.correctSumHoursTest();
-////        bookerPlusTaskEditPage.saveAllChanges2019Click();
+////        bookerPlusTaskEditPage.saveAllChanges2020Click();
 ////        bookerPlusTaskEditPage.sumHoursAddTest();
 ////
 ////        bookerPlusTaskEditPage.backPage(); //return on stage LineActivityMenu
@@ -131,11 +105,11 @@ public class BookerPlusLineActivityTest extends BookerPlusBaseTest{
 ////        BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
 ////                = bookerPlusLineActivityTaskPage.ScheduleButtonClick();
 ////        BookerPlusTaskEditPage bookerPlusTaskEditPage
-////                = bookerPlusNewTaskEditPage.addAndEditTask();
+////                = bookerPlusNewTaskEditPage.add2019AndEditTask();
 ////        Assert.assertTrue(bookerPlusNewTaskEditPage.isMenuButtonAble(), "button work wrong");
 ////        //добавить проверки кнопок
-////        bookerPlusTaskEditPage.set2018HoursWeeks();
-////        bookerPlusTaskEditPage.saveAllChanges2018Click();//
+////        bookerPlusTaskEditPage.set2019HoursWeeks();
+////        bookerPlusTaskEditPage.saveAllChanges2019Click();//
 //////        Assert.assertTrue(bookerPlusNewTaskEditPage.isMenuButtonAble(), "button work wrong");
 ////        bookerPlusTaskEditPage.correctSumHoursTest();
 //////        bookerPlusTaskEditPage.backPage();

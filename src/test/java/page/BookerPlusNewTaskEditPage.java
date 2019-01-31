@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
 //    @FindBy(xpath = "//b[contains(text(),'${taskName}')]") //ппроверка имени таска, отложить
@@ -39,15 +38,16 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
     @FindBy(xpath = "//option[@value='1: Object']")
     private WebElement selectResourceDropMenuFirstObject;
     @FindBy(xpath = "(//div[@class='btn-group']//a[contains(text(), '')])[1]")
-    private WebElement years2018SetDropMenu;
-    @FindBy(xpath = "(//div[@class='btn-group']//a[contains(text(), '')])[1]")
     private WebElement years2019SetDropMenu;
+    @FindBy(xpath = "(//div[@class='btn-group']//a[contains(text(), '')])[2]")
+    private WebElement years2020SetDropMenu;
 
     public BookerPlusNewTaskEditPage(WebDriver driver) {
         this.driver=driver;
         PageFactory.initElements(driver, this);
     }
-    public BookerPlusTaskEditPage addAndEditTask(){
+    public BookerPlusTaskEditPage add2019AndEditTask() throws InterruptedException {
+        Thread.sleep(300);
         selectResourceDropMenu.click();
         selectResourceDropMenuFirstObject.click();
         System.out.println("Selected resources: "+selectResourceDropMenuFirstObject.getText());
@@ -57,7 +57,7 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
         yearSelectDropMenu.click();
         System.out.println("DropMenu Year. Ok");
         Thread.sleep(500);
-        years2019SetDropMenu.click();
+        years2020SetDropMenu.click();
     }
     public boolean isMenuButtonAble() {
         System.out.println("button menu test");

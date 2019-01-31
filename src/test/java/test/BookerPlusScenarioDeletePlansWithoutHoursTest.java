@@ -33,7 +33,7 @@ public class BookerPlusScenarioDeletePlansWithoutHoursTest extends BookerPlusBas
             BookerPlusNewTaskEditPage bookerPlusNewTaskEditPage
                     =  bookerPlusLineActivityTaskPage.ScheduleButtonClick();
             bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
-            BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.addAndEditTask();
+            BookerPlusTaskEditPage bookerPlusTaskEditPage = bookerPlusNewTaskEditPage.add2019AndEditTask();
             //delete plans without hours
             bookerPlusTaskEditPage.addOneResources();
             bookerPlusTaskEditPage.addAllResources();
