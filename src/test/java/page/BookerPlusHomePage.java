@@ -63,6 +63,7 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
     String logins="";
     public String loginsList() {
         this.logins=logins;
+        logWrire("login");
         logins = logins+loginTextField.getText();
         System.out.println(logins+" ");
         return logins;
@@ -70,6 +71,7 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
 
     public BookerPlusLineActivityPage clickAllMenu() {
         menuItemLineActivity.click();
+        logWrire("Button LineActivity clicked");
         System.out.println("Button LineActivity clicked");
         return new BookerPlusLineActivityPage(driver);
     }

@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.ParseException;
+
 public class BookerPlusLoginPage extends BookerPlusBasePage {
 
     @FindBy (xpath = "//input[@name='username']")
@@ -48,10 +50,11 @@ public class BookerPlusLoginPage extends BookerPlusBasePage {
                 ;
     }
 
-    public <T> T login (String userName, String userPassword){
+    public <T> T login (String userName, String userPassword)  {
         userNameField.sendKeys(userName);
         userPasswordField.sendKeys(userPassword);
         loginButton.click();
+
 
         if (isUrlContains("/home", 5)) {
             return (T) new BookerPlusHomePage(driver);

@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import page.BookerPlusHomePage;
 import page.BookerPlusSearchResultPage;
 
-public class BookerPlusScenarioSearchTest extends BookerPlusBaseTest{
+public class BookerPlusSearchScenarioTest extends BookerPlusBaseTest{
     @DataProvider
     public Object[][] validForPMSearchTestDataProvider() {
         return new Object[][]{
