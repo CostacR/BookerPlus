@@ -68,14 +68,12 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
         System.out.println(logins+" ");
         return logins;
     }
-
     public BookerPlusLineActivityPage clickAllMenu() {
         menuItemLineActivity.click();
         logWrire("Button LineActivity clicked");
         System.out.println("Button LineActivity clicked");
         return new BookerPlusLineActivityPage(driver);
     }
-
     public boolean correctUserID(String userName) {
         return userIdField.getText().toLowerCase().contains(userName.toLowerCase());
     }
@@ -151,21 +149,15 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
         }
         return new BookerPlusScheduleForTaskPage(driver);
     }
-
     public BookerPlusScheduleForTaskPage searchTaskButtonsMenu() {
 
         return new BookerPlusScheduleForTaskPage(driver);
     }
-//    public void menuButtonsClick(){
-//
-//    }
     public void searchTaskByName() throws InterruptedException {
         Thread.sleep(500);
         System.out.println("task"+taskNameLink.isDisplayed());
         taskNameLink.click();
     }
-
-
     public BookerPlusScheduleForTaskPage searchButtonsMenu() throws InterruptedException {
         completedButton.click();
         Thread.sleep(1000);
@@ -173,17 +165,10 @@ public class BookerPlusHomePage extends BookerPlusBasePage{
         taskNameLink.click();//заход через имя таски
         return new BookerPlusScheduleForTaskPage(driver);
     }
-
     public void logOut() throws InterruptedException {
         Thread.sleep(500);
         logoutLink.click();
     }
 
-    //    public boolean openProjectByTaskName() throws InterruptedException {
-//        Thread.sleep(500);А
-//        for (WebElement taskNameLink : tasksNameLinks) {
-//            taskNameLink.click();
-//            return taskNameLink.isDisplayed() && taskNameLink.isEnabled();
-//    }  return false;
-//    }
+
 }

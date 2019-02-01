@@ -12,20 +12,15 @@ public class BookerPlusProjectPage  extends BookerPlusBasePage{
     @FindBy (xpath = "//tr/td//h5")
     private List<WebElement> taskListElements;
 
-
-
     public BookerPlusProjectPage(WebDriver driver) {
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
-
-
     public void generalInformationTaskListReview() {
         for (WebElement taskListElement : taskListElements) {
             System.out.println(taskListElement.getText());
         }
     }
-
     public void generalInformationReview() {
 
     }

@@ -46,14 +46,11 @@ public class BookerPlusCheckSumHoursTest  extends BookerPlusBaseTest {
          проверка сум часов запланированых по всем строкам
         * */
         BookerPlusScheduleForTaskPage bookerPlusScheduleForTaskPage = bookerPlusHomePage.searchButtonsMenu();
-
-
         bookerPlusScheduleForTaskPage.buttonList();
         bookerPlusScheduleForTaskPage.buttonRoleList();
         bookerPlusScheduleForTaskPage.sumHoursString();
         bookerPlusScheduleForTaskPage.hoursArray();
 
-//        bookerPlusScheduleForTaskPage.sumHoursRows();
 
     }
 }

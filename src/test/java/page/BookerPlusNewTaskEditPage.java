@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
-//    @FindBy(xpath = "//b[contains(text(),'${taskName}')]") //ппроверка имени таска, отложить
-//    private WebElement taskNameField;
 
     @FindBy(xpath = "//span[contains(text(),'plans)')]")
     private WebElement numberPlansTask;
@@ -97,5 +95,4 @@ public class BookerPlusNewTaskEditPage extends BookerPlusBasePage{
         selectResourceButton.click();
         return new BookerPlusResourceListPage(driver);
     }
-
     }

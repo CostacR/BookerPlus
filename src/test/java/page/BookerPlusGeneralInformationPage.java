@@ -37,7 +37,6 @@ public class BookerPlusGeneralInformationPage extends BookerPlusBasePage{
             }
         }
     }
-
     public void historyButtonClick() throws InterruptedException {//метод выборочного клика по кнопка с вызовом модальных окон
         Thread.sleep(1000);
         historyFirstButton.click();

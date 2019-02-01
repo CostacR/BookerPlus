@@ -30,7 +30,7 @@ public class BookerPlusMyProjectTest extends BookerPlusBaseTest {
         bookerPlusHomePage.openRequestMenuReview();
         //проверка активной страницы
 //        Assert.assertTrue(bookerPlusHomePage.openRequestMenuReview(), "menu NOT work");
-//        //select Project by name from HomePage
+////        //select Project by name from HomePage
 //        BookerPlusProjectPage bookerPlusProjectPage = bookerPlusHomePage.selectProject();
 //        bookerPlusProjectPage.generalInformationReview();
 //        bookerPlusProjectPage.generalInformationTaskListReview();

@@ -256,7 +256,6 @@ public class BookerPlusTaskEditPage extends BookerPlusBasePage{
     }
     public void sumTimeTesting() {
     }
-
     public void add2020AndEditTask() throws InterruptedException {
         Thread.sleep(300);
         selectResourceDropMenu.click();

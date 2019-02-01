@@ -33,7 +33,6 @@ public class BookerPlusLineActivityTest extends BookerPlusBaseTest{
                 = bookerPlusLineActivityTaskPage.ScheduleButtonClick();
         bookerPlusNewTaskEditPage.setYearSelectDropMenuClickable();
 
-
         //ResourceList test
         BookerPlusResourceListPage bookerPlusResourceListPage
                 = bookerPlusNewTaskEditPage.selectResourceButtonClick();
@@ -42,13 +41,7 @@ public class BookerPlusLineActivityTest extends BookerPlusBaseTest{
         bookerPlusResourceListPage.oneResourceSelect();
         bookerPlusResourceListPage.closeResourceList();
 //        Assert.assertTrue(bookerPlusResourceListPage.closeResourceList(),"button not ");
-
-
     }
-
-
-
-
 ////
 ////    @Test (dataProvider ="validForSearchTestDataProvider")
 ////    public void scenarioBasicTest(String userName, String userPassword, String taskCode, String taskName, String taskDescription) throws InterruptedException {
@@ -85,5 +78,4 @@ public class BookerPlusLineActivityTest extends BookerPlusBaseTest{
 ////        BookerPlusDeleteTaskPage bookerPlusDeliteTaskPage = bookerPlusLineActivityTaskPage.delitTaskButtonClick();
 ////        bookerPlusDeliteTaskPage.deleteTaskYesButton();
 ////    }
-
 }

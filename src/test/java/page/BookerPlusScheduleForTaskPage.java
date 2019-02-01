@@ -17,35 +17,25 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
             @FindBy (xpath = "//button[@class='btn btn-docs btn-sm']")
     })
     private List <WebElement> menuButtons;
-
     @FindBy (xpath = "(//tr//td[@class='leftPositionRows cutLink']/span/button[@type='button'])[3]")
     private WebElement roleSecondButtons;
-
     @FindBy (xpath = "//tr//td//span//button")
     private List<WebElement> roleButtons;
-
     @FindBy (xpath = "//tr//td/span[@title]")
     private List<WebElement> roleButtonNameFields;
-
     @FindBy (xpath = "//td/div[@class='text-center']/div[@class='planTotalZero']")//ячейка на пересечении столбец Total строка Demand
     private List<WebElement> planTotalZeroFields;
-
     @FindBy (xpath = "//td/div[@class='text-center']/div[2]")//столбец Total строка Plan
     private List<WebElement> totalPlanFields;
-
     @FindBy (xpath = "//td/div[@class='text-center']/div[1]")//столбец Total строка Demand
     private List<WebElement> totalDemandFields;
-
     @FindBy (xpath = "//tr[@class='demandSuccess']//td[@class='leftPositionRows']/div")//ячейка Demand/Planned
     private WatchEvent totalPlannedDemandField;
-
     @FindBy(xpath = "//*[@id='fixTable']/tbody/tr[14]/td[@class='timeEachOfTd']")
     private List<WebElement> kopkaHoursTableElements;
-
     @FindBy (xpath = "(//tr[@class='']/td/div/a/ancestor-or-self::tr)[1]//td/div[2]")
 //    @FindBy (xpath = "(//tr[@class='demandSuccess']/td/div/a/ancestor-or-self::tr)[1]//td/div[2]")  //строка Planned и
     private List<WebElement> stringDataHours;                                                       //строки с данными по часам
-
     @FindAll({
             @FindBy (xpath = "//*[contains(text(), 'Approving')]/ancestor-or-self::tr//td/div[@class='selectedPlan']"),//28
             @FindBy (xpath = "//*[contains(text(), 'Approving')]/ancestor-or-self::tr//td/div[@class='zero']"),//26
@@ -53,13 +43,10 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
 
     })
     private List<WebElement> allStringsDataHours;
-
     @FindBy (xpath = "//td/div/div[@class='underline text-nowrap cursor planTotalRef']")//первая строка Total Planned
     private WebElement planHoursField;
-
     @FindBy (xpath = "//td/div/div[@class='underline text-nowrap cursor planTotalRef']")
     private List<WebElement> planHoursFields;
-
     @FindBy (xpath = "//tbody/tr/td[@rowspan]/span/ancestor-or-self::td")
     private List<WebElement>rowspanElements;//блоки Рабочих Ролей
     @FindBy (xpath = "//td/div/div[@class='underline text-nowrap cursor planTotalRef']/span")
@@ -70,11 +57,9 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
         PageFactory.initElements(driver,this);
     }
 
-
     public int residueWeeksYeaer (){
         return stringDataHours.size();
     }
-
     public void sumHoursRows() throws InterruptedException {
         Thread.sleep(500);
         int residueWeeks = residueWeeksYeaer();//число недель до конца года
@@ -115,7 +100,6 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
                 indexC++;
             }return columnSum;
     }
-
     public void hoursArray() throws InterruptedException {
         Thread.sleep(500);
         int indexHoursArray=0;
@@ -127,7 +111,6 @@ public class BookerPlusScheduleForTaskPage extends BookerPlusBasePage{
                     indexHoursArray++;
         }
     }
-
     public int sumHoursRow(int indexRow){
         int startElement = indexRow * stringDataHours.size();
         int finishElement = (indexRow+1) * stringDataHours.size();

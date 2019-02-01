@@ -8,11 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Date;
-import java.util.logging.SocketHandler;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 
 public class BookerPlusBasePage {
     protected WebDriver driver;

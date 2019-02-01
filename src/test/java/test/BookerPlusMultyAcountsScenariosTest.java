@@ -30,13 +30,10 @@ public class BookerPlusMultyAcountsScenariosTest extends BookerPlusBaseTest{
 
         bookerPlusHomePage.logOut();
 
-
-
         bookerPlusLoginPage.login(loginLM, passwordLM);
         Assert.assertTrue(bookerPlusHomePage.logoutLinkAble(), "Logout Button not work");
         bookerPlusHomePage.loginsList();
         bookerPlusHomePage.logOut();
-
 
         bookerPlusLoginPage.login(loginAdmin, passwordAdmin);
         Assert.assertTrue(bookerPlusHomePage.logoutLinkAble(), "Logout Button not work");

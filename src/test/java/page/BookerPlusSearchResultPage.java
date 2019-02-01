@@ -23,7 +23,6 @@ public class BookerPlusSearchResultPage extends BookerPlusBasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
     public void searchResult(String findText) throws InterruptedException {//передача в поисковую строку текста для поиска
         Thread.sleep(500);
         searchTextField.click();
@@ -45,7 +44,6 @@ public class BookerPlusSearchResultPage extends BookerPlusBasePage {
         System.out.println(index);
         return (projectNameElements.size() == index);
     }
-
     public boolean searchProjectNameCounter(String findText) { //счетчик строк результатов
         int index = 0;
         for (WebElement projectNameElement : projectNameElements) {

@@ -15,13 +15,11 @@ public class BookerPlusLineActivityPage extends BookerPlusBasePage{
         this.driver=driver;
         PageFactory.initElements(driver, this);
     }
-
     public boolean isPageLoaded() {
         return getCurrentUrl().toLowerCase().contains("/lineactivity")
                 &&
                 getCurrentTitle().toLowerCase().contains("booker")
                 ;}
-
     public BookerPlusLineActivityTaskPage clickTask() throws InterruptedException {
         Thread.sleep(1500);
         System.out.println("+1500");

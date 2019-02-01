@@ -29,11 +29,9 @@ public class BookerPlusLoginPage extends BookerPlusBasePage {
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
-
     public void loginLinkClick() {
         loginLink.click();
     }
-
     public boolean isElementsVisible() {
         System.out.println("test 1");
         return
@@ -49,7 +47,6 @@ public class BookerPlusLoginPage extends BookerPlusBasePage {
 //                        &&loginLink.isEnabled()
                 ;
     }
-
     public <T> T login (String userName, String userPassword)  {
         userNameField.sendKeys(userName);
         userPasswordField.sendKeys(userPassword);
@@ -63,7 +60,6 @@ public class BookerPlusLoginPage extends BookerPlusBasePage {
             return (T) new BookerPlusLoginPage(driver);
         }
     }
-
     private boolean isUrlContains(String partUrl, int timeOutInSec) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSec);
         try {
@@ -71,12 +67,9 @@ public class BookerPlusLoginPage extends BookerPlusBasePage {
         }catch (TimeoutException e){
             return false;
         }}
-
     public boolean isPageLoaded() {
         return getCurrentUrl().toLowerCase().contains("localhost:8080/erp/")
                 &&
                         getCurrentTitle().toLowerCase().contains("booker")
                 ;}
-
-
 }

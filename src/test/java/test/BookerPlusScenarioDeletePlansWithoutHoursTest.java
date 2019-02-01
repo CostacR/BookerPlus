@@ -38,6 +38,5 @@ public class BookerPlusScenarioDeletePlansWithoutHoursTest extends BookerPlusBas
             bookerPlusTaskEditPage.addOneResources();
             bookerPlusTaskEditPage.addAllResources();
             bookerPlusTaskEditPage.addSomeResourcesWithPlans();
-
     }
 }

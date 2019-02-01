@@ -43,12 +43,10 @@ public class BookerPlusResourceListPage extends BookerPlusBasePage {
 //            @FindBy(xpath = "//tr//td[@class='col-xs-2'][not(div[@class='glyphicon glyphicon-ok'])]")
     })
     private List <WebElement> existedInSchedulerObjects;
-
     public BookerPlusResourceListPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
     public void oneResourceSelect() {
         int index = 0;
         for (WebElement existedInSchedulerObject : existedInSchedulerObjects) {
